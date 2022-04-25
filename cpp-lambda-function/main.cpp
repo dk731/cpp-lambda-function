@@ -82,28 +82,24 @@ int main()
 	std::cout << std::endl;
 
 
-
-	std::cout << "Employees who's salagy is bigger than 1000 Eur: " << std::endl;
-	std::for_each(
+	int emp_1000_cnt = std::count_if(
 		data.begin(), data.end(),
 		[](Employee const& emp) {
-			if (emp.Salary > 1000)
-				std::cout << "    " << emp << std::endl;
+			return emp.Salary > 1000;
 		}
 	);
-	std::cout << std::endl;
+
+	std::cout << "Amount of employees who's salary is bigger than 1000 Eur: " << std::endl << "    " << emp_1000_cnt << std::endl << std::endl;
 
 
-
-	std::cout << "Employees who's salagy is bigger than 500 Eur: " << std::endl;
-	std::for_each(
+	bool if_500_check = std::all_of(
 		data.begin(), data.end(),
 		[](Employee const& emp) {
-			if (emp.Salary > 500)
-				std::cout << "    " << emp << std::endl;
+			return emp.Salary > 500;
 		}
 	);
-	std::cout << std::endl;
+
+	std::cout << "Does all employees make more than 500 Eur: " << std::endl << "    " << std::boolalpha << if_500_check << std::endl << std::endl;
 
 
 
